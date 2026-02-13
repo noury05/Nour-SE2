@@ -1,10 +1,7 @@
 import config from "../config";
 import winston from "winston";   
 
-// const logsDir = config.logDir; // directory for log files, can be set in .env file or defaults to "./logs"
-// const isDev = config.isDev; // set to false in production if the user is not developer
-
-const {logDir,isDev} = config; // destructuring the config object to get logDir and isDev values
+const {logDir,isDev} = config; 
 
 const logFileFormate = winston.format.combine(
     winston.format.timestamp(),
@@ -22,13 +19,10 @@ const logConsoleFormate = winston.format.combine(
         return `[${timestamp}] ${level}: ${message} ${stack || ""}`;
     }),
 )
-// log levels are error, warn, info, http, verbose, debug, silly
 const logger= winston.createLogger({
     level:"info",
     transports:[
-        // kel m a3ml log hotili yeh b file esmo error.log (loggs t3ol error bs)
         new winston.transports.File({filename:"error.log", dirname:logDir , level:"error", format: logFileFormate}),
-        // hon kelon ma3 b3d ==> yeh b file esmo combined.log (loggs t3ol kol el levels)
         new winston.transports.File({filename:"all.log", dirname:logDir,format: logFileFormate})
     ],
     exceptionHandlers:[
@@ -37,7 +31,7 @@ const logger= winston.createLogger({
 });
 
 if(isDev){
-    logger.add(new winston.transports.Console({format:logConsoleFormate})),  //kel m a3ml log frgeni yeh 3al console
-    logger.level = "debug"; // 3shan y3ml log lel debug level w kel el levels elly fo2ha
+    logger.add(new winston.transports.Console({format:logConsoleFormate})),  
+    logger.level = "debug"; 
 }
 export default logger;

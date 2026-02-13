@@ -15,8 +15,7 @@ const rules=[
 ]
 
 const orderManeger = new orderManegment(new Validator(rules), new FinanceCalculator());
-// const orderManeger = new PrempiumOrderManager(); ==> optional we can skip it since 
-                                                    // now it doesnt contain mathmatical calculations
+
 for(const order of orders){
     orderManeger.addOrder(order.item,order.price)
 }
@@ -31,8 +30,7 @@ logger.info("Average Buy Power: "+orderManeger.getBuyPower())
 // fetching an order directly
 const fetchID = 2;
 const ferchOrder = orderManeger.getOrder(fetchID);
-logger.info("Order with id 2 %o", ferchOrder);  //splat allows me to write the number in the terminal we add here %0 (object) for numbers %d (decimal) and for strings %s
-
+logger.info("Order with id 2 %o", ferchOrder); 
 // attempt to fetch a non-existent order
 const nonExistentID = 10;
 const nonExistentOrder = orderManeger.getOrder(nonExistentID);
