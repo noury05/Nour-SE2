@@ -1,12 +1,5 @@
-// SOLID Prenciples
 
 import logger from "./util/logger";
-
-// Single Responsibility Prenciple
-// Open Closed Prenciple (OCP) 
-// Liskov Substitution Principle
-// Interface Segregation Principle (ISP)
-// Dependency Inversion Principle (DIP)
 export interface Order{
     id:number,
     price:number,

@@ -32,6 +32,6 @@ const logger= winston.createLogger({
 
 if(isDev){
     logger.add(new winston.transports.Console({format:logConsoleFormate})),  
-    logger.level = "debug"; 
+    logger.level = "debug"
 }
 export default logger;

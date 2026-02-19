@@ -27,11 +27,10 @@ logger.info("Orders after adding new order: %o"  , orderManeger.getOrders())
 logger.info("Total Revenue"  + orderManeger.getTolataRevenue())
 logger.info("Average Buy Power: "+orderManeger.getBuyPower())
 
-// fetching an order directly
 const fetchID = 2;
 const ferchOrder = orderManeger.getOrder(fetchID);
 logger.info("Order with id 2 %o", ferchOrder); 
-// attempt to fetch a non-existent order
+
 const nonExistentID = 10;
 const nonExistentOrder = orderManeger.getOrder(nonExistentID);
 logger.info("Order with id 10 not exixtent " + nonExistentOrder)
