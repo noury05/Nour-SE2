@@ -94,4 +94,5 @@ export class Cake implements IItem {
     getPackagingType(): string {
         return this.packagingType;
     }
+    
 }
